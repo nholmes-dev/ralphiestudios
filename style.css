@@ -2867,6 +2867,10 @@ footer p {
     bottom: -22px;
   }
 
+  .visual-label {
+    display: none;
+  }
+
   .devlog-grid {
     grid-template-columns: 1fr;
   }
@@ -3337,8 +3341,8 @@ input:focus-visible {
   .showcase-head,.player-system-grid { grid-template-columns:1fr; gap:30px; }
   .dev-screenshots { grid-template-columns:1fr; }
   .char-slide { grid-template-columns: 1fr; }
-  .char-img-wrap { height: 260px; }
-  .char-img-pair img { height: 260px; }
+  .char-img-wrap { height: 380px; }
+  .char-img-pair img { height: 380px; }
   .char-caption { padding: 28px 24px; }
   .char-video-note { flex-direction: column; align-items: flex-start; gap: 8px; }
   .waitlist-inner { grid-template-columns:1fr; gap:32px; }

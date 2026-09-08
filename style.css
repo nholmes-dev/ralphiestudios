@@ -2441,54 +2441,41 @@ footer p {
     );
 }
 
-.partner-shell {
-  margin-top: 48px;
-
-  background: rgba(255,255,255,.02);
-
-  border: 1px solid var(--border);
+.partner-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 40px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.partner-grid {
-  display: grid;
-
-  grid-template-columns: repeat(5,1fr);
+.partner-bar-cell {
+  flex: 1 1 0;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  border-right: 1px solid #e8e8e8;
+  transition: background .15s ease;
 }
 
-.partner-cell {
-  min-height: 150px;
-
-  display: grid;
-  place-items: center;
-
-  padding: 24px;
-
-  border-right: 1px solid var(--border);
-
-  filter:
-    saturate(.1)
-    brightness(1.3);
-
-  opacity: .62;
-
-  transition: .2s ease;
-}
-
-.partner-cell:last-child {
+.partner-bar-cell:last-child {
   border-right: 0;
 }
 
-.partner-cell:hover {
-  filter: none;
-  opacity: 1;
-
-  background: rgba(255,255,255,.04);
+.partner-bar-cell:hover {
+  background: #f5f5f5;
 }
 
-.partner-cell img {
-  max-width: 140px;
-  max-height: 72px;
-
+.partner-bar-cell img {
+  max-width: 110px;
+  max-height: 52px;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -3172,6 +3159,58 @@ input:focus-visible {
 .devlog-all-link { flex:0 0 auto; padding:11px 14px; border:1px solid var(--border); color:var(--blue); font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .devlog-all-link:hover { border-color:var(--blue); color:white; }
 
+.wrl-waitlist {
+  background: linear-gradient(135deg, #0a1a3a 0%, #0d2250 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.waitlist-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 20px 0;
+}
+.waitlist-form { display: flex; flex-direction: column; gap: 12px; }
+.waitlist-fields {
+  display: flex;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.waitlist-fields input[type="email"] {
+  flex: 1;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.06);
+  border: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  font-family: inherit;
+}
+.waitlist-fields input[type="email"]::placeholder { color: var(--muted); }
+.waitlist-fields input[type="email"]:focus { background: rgba(255,255,255,0.1); }
+.waitlist-fields button {
+  padding: 14px 24px;
+  background: var(--orange);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s ease;
+  white-space: nowrap;
+}
+.waitlist-fields button:hover { background: #e07820; }
+.waitlist-small {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+}
+
 .closing-section { background:#07101f; }
 .wrl-closing { position:relative; overflow:hidden; padding:60px; display:grid; grid-template-columns:minmax(0,1.2fr) auto; gap:50px; align-items:end; background:linear-gradient(125deg,#0a2d6e 0%,#153f7c 52%,#542818 130%); border:1px solid rgba(255,255,255,.12); clip-path:polygon(0 0,96% 0,100% 18%,100% 100%,4% 100%,0 82%); }
 .wrl-closing::after { content:"WRL"; position:absolute; right:-15px; bottom:-40px; color:rgba(255,255,255,.035); font-family:'Russo One',sans-serif; font-size:210px; line-height:.8; pointer-events:none; }
@@ -3214,6 +3253,9 @@ input:focus-visible {
 @media (max-width: 980px) {
   .showcase-head,.player-system-grid { grid-template-columns:1fr; gap:30px; }
   .dev-screenshots { grid-template-columns:1fr; }
+  .waitlist-inner { grid-template-columns:1fr; gap:32px; }
+  .partner-bar { flex-wrap: wrap; }
+  .partner-bar-cell { flex: 1 1 calc(25% - 1px); }
   .gameplay-card-large { grid-row:auto; min-height:360px; }
   .build-strip { grid-template-columns:1fr; }
   .build-strip > div + div { border-left:0; border-top:1px solid var(--border); }

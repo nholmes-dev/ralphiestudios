@@ -3246,6 +3246,12 @@ input:focus-visible {
   margin: 0;
 }
 
+.waitlist-right { display: flex; flex-direction: column; gap: 20px; }
+.waitlist-success { display: flex; align-items: center; min-height: 80px; }
+.waitlist-success-msg { font-size: 1rem; color: #7fe0a0; font-weight: 600; margin: 0; }
+.waitlist-error { font-size: 0.8rem; color: #f08080; margin: 6px 0 0; }
+.wrl-waitlist .closing-actions { display: flex; flex-direction: column; gap: 10px; }
+
 .closing-section { background:#07101f; }
 .wrl-closing { position:relative; overflow:hidden; padding:60px; display:grid; grid-template-columns:minmax(0,1.2fr) auto; gap:50px; align-items:end; background:linear-gradient(125deg,#0a2d6e 0%,#153f7c 52%,#542818 130%); border:1px solid rgba(255,255,255,.12); clip-path:polygon(0 0,96% 0,100% 18%,100% 100%,4% 100%,0 82%); }
 .wrl-closing::after { content:"WRL"; position:absolute; right:-15px; bottom:-40px; color:rgba(255,255,255,.035); font-family:'Russo One',sans-serif; font-size:210px; line-height:.8; pointer-events:none; }

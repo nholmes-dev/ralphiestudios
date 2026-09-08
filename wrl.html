@@ -58,6 +58,7 @@
           <div class="wrl-actions">
             <a class="btn-wrl-p" href="#game">Explore the Game →</a>
             <a class="btn-wrl-g" href="devlog.html">Development Log</a>
+            <a class="btn-wrl-g" href="#alpha">Follow the Build</a>
           </div>
         </div>
 
@@ -229,25 +230,25 @@
         <div class="waitlist-inner" data-reveal>
           <div class="waitlist-text">
             <span class="wrl-eyebrow">Stay in the Loop</span>
-            <h2 class="wrl-h2">Follow the build.<em>Be first to play.</em></h2>
-            <p class="wrl-lead">Sign up for development updates and be first to hear when alpha testing opens up.</p>
+            <h2 class="wrl-h2">Built in public.<em>Be first to play.</em></h2>
+            <p class="wrl-lead">Sign up for development updates and be first to hear when alpha testing opens up. Or follow the build in real time through the development log.</p>
           </div>
-          <form class="waitlist-form" action="https://formspree.io/f/xqpkgbqg" method="POST" novalidate>
-            <div class="waitlist-fields">
-              <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
-              <button type="submit">Subscribe</button>
+          <div class="waitlist-right">
+            <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/xqpkgbqg" method="POST" novalidate>
+              <div class="waitlist-fields">
+                <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+                <button type="submit">Subscribe</button>
+              </div>
+              <p class="waitlist-small">No spam. Development updates only. Unsubscribe any time.</p>
+            </form>
+            <div class="waitlist-success" id="waitlistSuccess" hidden>
+              <p class="waitlist-success-msg">You're in. We'll be in touch when there's something worth sharing.</p>
             </div>
-            <p class="waitlist-small">No spam. Development updates only. Unsubscribe any time.</p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrl-s closing-section">
-      <div class="wrap" data-reveal>
-        <div class="wrl-closing">
-          <div><span class="wrl-eyebrow">Development Continues</span><h2>Built in public.<br><span>One system at a time.</span></h2><p>For now, the best place to follow the project is the development log as the game moves from chair mechanics into contact, tackling and full-match systems.</p></div>
-          <div class="closing-actions"><a class="btn-wrl-p" href="devlog.html">Read the Devlog →</a><a class="btn-wrl-g" href="mailto:contact@ralphiestudios.com">Contact Ralphie Studios</a></div>
+            <div class="closing-actions">
+              <a class="btn-wrl-p" href="devlog.html">Read the Devlog →</a>
+              <a class="btn-wrl-g" href="mailto:contact@ralphiestudios.com">Contact Ralphie Studios</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -270,6 +271,34 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    const waitlistForm = document.getElementById('waitlistForm');
+    if (waitlistForm) {
+      waitlistForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+          const res = await fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            this.hidden = true;
+            document.getElementById('waitlistSuccess').hidden = false;
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Subscribe';
+            btn.insertAdjacentHTML('afterend', '<p class="waitlist-error">Something went wrong — please try again or email us directly.</p>');
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        }
+      });
+    }
   </script>
 
   <script>

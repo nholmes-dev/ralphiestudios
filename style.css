@@ -3248,6 +3248,7 @@ input:focus-visible {
 
 .waitlist-right { display: flex; flex-direction: column; gap: 20px; }
 .waitlist-success { display: flex; align-items: center; min-height: 80px; }
+.waitlist-success[hidden] { display: none !important; }
 .waitlist-success-msg { font-size: 1rem; color: #7fe0a0; font-weight: 600; margin: 0; }
 .waitlist-error { font-size: 0.8rem; color: #f08080; margin: 6px 0 0; }
 .wrl-waitlist .closing-actions { display: flex; flex-direction: column; gap: 10px; }

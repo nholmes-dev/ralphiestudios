@@ -1315,6 +1315,8 @@ footer p {
   gap: .5rem;
 }
 
+.nav-alpha-mobile { display: none; }
+
 .wrl-cta a {
   display: inline-flex;
   align-items: center;
@@ -1873,7 +1875,7 @@ footer p {
   height: 100%;
 
   object-fit: cover;
-  object-position: 92% center;
+  object-position: 20% center;
 }
 
 .visual-main::after {
@@ -2565,6 +2567,19 @@ footer p {
 
   .wrl-cta-btn {
     display: none !important;
+  }
+
+  .nav-alpha-mobile {
+    display: block;
+  }
+
+  .nav-alpha-mobile a {
+    color: var(--orange) !important;
+    font-weight: 700;
+  }
+
+  .status-pill {
+    display: none;
   }
 
   #wrlNav .nav-toggle {

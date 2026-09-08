@@ -3090,7 +3090,7 @@ input:focus-visible {
 .char-slider { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 4px; margin-top: 40px; }
 .char-track { display: flex; transition: transform .4s cubic-bezier(.4,0,.2,1); width: 100%; }
 .char-slide { flex: 0 0 100%; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; }
-.char-img-wrap { background: #050c19; overflow: hidden; height: 420px; display: flex; align-items: center; justify-content: center; }
+.char-img-wrap { background: #050c19; overflow: hidden; height: 580px; display: flex; align-items: center; justify-content: center; }
 .char-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .char-img-pair { display: grid; grid-template-columns: 1fr 1fr; }
 .char-img-pair img { height: 420px; object-fit: cover; }

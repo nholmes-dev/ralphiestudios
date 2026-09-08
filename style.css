@@ -2468,10 +2468,6 @@ footer p {
   border-right: 0;
 }
 
-.partner-bar-cell:hover {
-  background: #f5f5f5;
-}
-
 .partner-bar-cell img {
   max-width: 110px;
   max-height: 52px;

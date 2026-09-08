@@ -149,6 +149,94 @@
       <p id="lightbox-cap"></p>
     </div>
 
+    <section class="wrl-s char-timeline-section">
+      <div class="wrap">
+        <div data-reveal>
+          <span class="wrl-eyebrow">The Build</span>
+          <h2 class="wrl-h2">From prototype.<em>To player.</em></h2>
+          <p class="wrl-lead" style="max-width:680px;margin-top:16px;">The character and chair have gone through several distinct stages — from early placeholder mannequins getting something moving in engine, to a fully rigged player on a dedicated sports wheelchair.</p>
+        </div>
+
+        <div class="char-slider" data-reveal>
+          <div class="char-track" id="charTrack">
+
+            <div class="char-slide">
+              <div class="char-img-wrap">
+                <img src="images/timeline1.png" alt="Stage 1 — placeholder mannequin on basic chair">
+              </div>
+              <div class="char-caption">
+                <span class="char-stage-lbl">Stage 01</span>
+                <h3>Getting something in engine</h3>
+                <p>A placeholder mannequin on a basic chair — the goal at this point was simply to establish scale, proportions and get a character sitting in a wheelchair inside Unreal Engine 5.</p>
+              </div>
+            </div>
+
+            <div class="char-slide">
+              <div class="char-img-wrap">
+                <img src="images/timeline2.jpg" alt="Stage 2 — mannequin on developed chair geometry">
+              </div>
+              <div class="char-caption">
+                <span class="char-stage-lbl">Stage 02</span>
+                <h3>Chair geometry developing</h3>
+                <p>The placeholder mannequin remains but the wheelchair is taking shape — frame structure, tyre geometry and proportions are being refined before a real character model is introduced.</p>
+              </div>
+            </div>
+
+            <div class="char-slide">
+              <div class="char-img-wrap">
+                <img src="images/timeline3.png" alt="Stage 3 — first real player model in stadium environment">
+              </div>
+              <div class="char-caption">
+                <span class="char-stage-lbl">Stage 03</span>
+                <h3>First real player model</h3>
+                <p>The mannequin is replaced with a properly modelled player. A stadium environment is dropped in to start seeing the character in context of the game world.</p>
+              </div>
+            </div>
+
+            <div class="char-slide">
+              <div class="char-img-wrap char-img-pair">
+                <img src="images/timeline4front.png" alt="Stage 4 — sports wheelchair front view">
+                <img src="images/timeline4back.png" alt="Stage 4 — sports wheelchair rear view">
+              </div>
+              <div class="char-caption">
+                <span class="char-stage-lbl">Stage 04</span>
+                <h3>Sports wheelchair</h3>
+                <p>The standard chair is replaced with a dedicated sports wheelchair — correct geometry, red rims and player kit. Front and rear detail shown. This is the current build.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="char-arrow char-prev" id="charPrev" aria-label="Previous stage" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="char-arrow char-next" id="charNext" aria-label="Next stage">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+          <div class="char-dots" id="charDots">
+            <button class="char-dot active" aria-label="Stage 1"></button>
+            <button class="char-dot" aria-label="Stage 2"></button>
+            <button class="char-dot" aria-label="Stage 3"></button>
+            <button class="char-dot" aria-label="Stage 4"></button>
+          </div>
+        </div>
+
+        <div class="char-video-wrap" data-reveal>
+          <div class="char-video-inner">
+            <video autoplay loop muted playsinline class="char-video">
+              <source src="images/basicmovement.mp4" type="video/mp4">
+            </video>
+            <div class="char-video-note">
+              <span class="dev-build-badge">Early Footage</span>
+              Basic chair movement only — animations, advanced movement systems and contact mechanics are not present in this clip and cannot be seen here.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section class="wrl-s player-system" id="players">
       <div class="wrap player-system-grid">
         <div data-reveal>
@@ -267,6 +355,27 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    (function() {
+      const track = document.getElementById('charTrack');
+      const dots = document.querySelectorAll('.char-dot');
+      const prev = document.getElementById('charPrev');
+      const next = document.getElementById('charNext');
+      const total = dots.length;
+      let current = 0;
+
+      function goTo(n) {
+        current = n;
+        track.style.transform = 'translateX(-' + (100 * current) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        prev.disabled = current === 0;
+        next.disabled = current === total - 1;
+      }
+
+      prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+      next.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+    })();
 
     const waitlistForm = document.getElementById('waitlistForm');
     if (waitlistForm) {

@@ -3117,6 +3117,45 @@ input:focus-visible {
   padding: 0.2rem 0.5rem;
 }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  cursor: zoom-out;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+.lightbox p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; }
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  opacity: 0.7;
+  line-height: 1;
+}
+.lightbox-close:hover { opacity: 1; }
+.dev-shot { cursor: zoom-in; }
+.dev-expand { opacity: 0.5; font-size: 0.7rem; margin-left: 6px; }
+.dev-shot:hover .dev-expand { opacity: 1; }
+
 .player-system {
   background: radial-gradient(circle at 15% 20%,rgba(253,142,55,.08),transparent 35%);
 }

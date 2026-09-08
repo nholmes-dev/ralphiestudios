@@ -128,23 +128,30 @@
 
     <section class="wrl-s dev-build-section">
       <div class="wrap">
-        <div class="showcase-head" data-reveal>
-          <div><span class="wrl-eyebrow">Inside the Build</span><h2 class="wrl-h2">Early development.<em>Real gameplay.</em></h2></div>
-          <p class="wrl-lead">These screenshots are taken directly from the current development build. Movement, possession, passing, kicking, scoring and the match clock are all already playable.</p>
+        <div data-reveal>
+          <span class="wrl-eyebrow">Inside the Build</span>
+          <h2 class="wrl-h2">Early development.<em>Real gameplay.</em></h2>
+          <p class="wrl-lead" style="max-width:680px;margin-top:16px;">These screenshots are taken directly from the current development build. Movement, possession, passing, kicking, scoring and the match clock are all already playable.</p>
         </div>
         <div class="dev-screenshots" data-reveal>
-          <figure class="dev-shot">
+          <figure class="dev-shot" onclick="openLightbox('images/front.png','Match HUD, scoreboard and player model — current build')">
             <img src="images/front.png" alt="WRL development build — front view showing HUD and player">
-            <figcaption>Match HUD, scoreboard and player model — current build</figcaption>
+            <figcaption>Match HUD, scoreboard and player model — current build <span class="dev-expand">⤢ Expand</span></figcaption>
           </figure>
-          <figure class="dev-shot">
+          <figure class="dev-shot" onclick="openLightbox('images/back.png','HOLMES #4 — player identity already in-game')">
             <img src="images/back.png" alt="WRL development build — rear view showing pitch and player jersey">
-            <figcaption>HOLMES #4 — player identity already in-game</figcaption>
+            <figcaption>HOLMES #4 — player identity already in-game <span class="dev-expand">⤢ Expand</span></figcaption>
           </figure>
         </div>
         <p class="dev-note" data-reveal><span class="dev-build-badge">Pre-Alpha</span>Environments, crowd, lighting and visual polish are all in progress. Full gameplay footage is coming as development continues.</p>
       </div>
     </section>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-cap"></p>
+    </div>
 
     <section class="wrl-s player-system" id="players">
       <div class="wrap player-system-grid">
@@ -225,7 +232,7 @@
             <h2 class="wrl-h2">Follow the build.<em>Be first to play.</em></h2>
             <p class="wrl-lead">Sign up for development updates and be first to hear when alpha testing opens up.</p>
           </div>
-          <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <form class="waitlist-form" action="https://formspree.io/f/xqpkgbqg" method="POST" novalidate>
             <div class="waitlist-fields">
               <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
               <button type="submit">Subscribe</button>
@@ -250,6 +257,20 @@
     <a href="index.html" class="ft-logo-brand"><span class="nr">RALPHIE</span><span class="ns">STUDIOS</span></a>
     <div class="ft-right"><p>&copy; 2026 Ralphie Studios. Wheelchair Rugby League — in development.</p><div class="ft-links"><a href="index.html">Studio</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div></div>
   </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-cap').textContent = caption;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 
   <script>
     const wrlNav = document.getElementById('wrlNav');

@@ -2469,8 +2469,8 @@ footer p {
 }
 
 .partner-bar-cell img {
-  max-width: 110px;
-  max-height: 52px;
+  max-width: 150px;
+  max-height: 72px;
   width: 100%;
   object-fit: contain;
 }

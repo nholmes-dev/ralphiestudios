@@ -3087,6 +3087,49 @@ input:focus-visible {
 .build-strip span { display:block; margin-bottom:8px; color:var(--muted); font-size:9px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 .build-strip strong { display:block; font-family:'Russo One',sans-serif; font-size:15px; line-height:1.45; font-weight:400; text-transform:uppercase; }
 
+.dev-screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 2.5rem 0 2rem;
+}
+.dev-shot {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.dev-shot img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.dev-shot figcaption {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: rgba(0,0,0,0.35);
+}
+.dev-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+}
+.dev-build-badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
+
 .player-system {
   background: radial-gradient(circle at 15% 20%,rgba(253,142,55,.08),transparent 35%);
 }
@@ -3170,6 +3213,7 @@ input:focus-visible {
 
 @media (max-width: 980px) {
   .showcase-head,.player-system-grid { grid-template-columns:1fr; gap:30px; }
+  .dev-screenshots { grid-template-columns:1fr; }
   .gameplay-card-large { grid-row:auto; min-height:360px; }
   .build-strip { grid-template-columns:1fr; }
   .build-strip > div + div { border-left:0; border-top:1px solid var(--border); }

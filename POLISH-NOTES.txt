@@ -1,0 +1,42 @@
+RALPHIE STUDIOS — POLISH PASS
+==============================
+
+Changes in this package
+-----------------------
+- Kept “pitch” terminology throughout WRL as requested.
+- Corrected the basicmovement.mp4 filename case mismatch.
+- Changed “Target platforms” to “Platform ambition” and added a small status disclaimer.
+- Added a concept-art disclaimer to the platform-box mock-up on the homepage.
+- Added an accessible H1 to the homepage and restored the homepage navigation.
+- Standardised internal links and sitemap URLs to the extensionless live routes.
+- Added /devlog to sitemap.xml.
+- Removed duplicate meta descriptions/canonicals from Privacy and Terms.
+- Improved screenshot lightbox keyboard/focus accessibility.
+- Added a real label and browser/email validation to the Formspree waitlist.
+- Added lazy loading/async decoding to below-the-fold images.
+- Added optimized WebP derivatives for the largest site imagery and corrected misleading image extensions.
+- Compressed basicmovement.mp4 and removed its unused audio track.
+- Added correctly sized favicon and Apple touch icon files.
+- Respected prefers-reduced-motion for homepage particles.
+
+Cloudflare Turnstile
+--------------------
+Turnstile is NOT enabled in this package because the public Site Key has not been supplied and the private Secret Key must never be committed to the website. Formspree supports Turnstile directly.
+
+Recommended setup:
+1. Create a Turnstile widget in Cloudflare for ralphiestudios.com (Managed mode is a good default).
+2. In Formspree, open the WRL form settings > CAPTCHA, choose Cloudflare Turnstile, and enter the Turnstile SECRET KEY there.
+3. Add the public SITE KEY to the WRL form markup. The secret key must remain in Formspree/Cloudflare only.
+4. Test a real submission and a failed/blocked submission before deploying.
+
+Once the Site Key is available, the WRL form can be wired to Turnstile in a very small HTML change.
+
+
+9 September follow-up
+---------------------
+- Removed the homepage header/navigation again so the landing page returns to the logo-led presentation.
+- Added Cloudflare Turnstile (Managed widget) to the WRL update form using the public Site Key.
+- Added client-side checks for the Turnstile response and reset it after failed submissions.
+- Updated the Privacy Policy to explain Cloudflare Turnstile processing and link to its Privacy Addendum.
+- Terms of Use left unchanged: no Turnstile-specific terms amendment is necessary for this setup.
+- Turnstile Secret Key is intentionally NOT included in the site. Configure it only inside Formspree.

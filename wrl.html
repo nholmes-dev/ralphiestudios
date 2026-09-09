@@ -12,18 +12,19 @@
   <meta property="og:image" content="https://ralphiestudios.com/images/gamepic.png">
   <meta name="theme-color" content="#07101f">
   <link rel="canonical" href="https://ralphiestudios.com/wrl">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="wrl-page">
 
   <nav id="wrlNav">
     <div class="wrl-left">
-      <a href="index.html" class="wrl-back" aria-label="Back to Ralphie Studios">
+      <a href="/" class="wrl-back" aria-label="Back to Ralphie Studios">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         <span><span class="nr">RALPHIE</span><span class="ns wrl-back-label">STUDIOS</span></span>
       </a>
@@ -36,7 +37,7 @@
       <li><a href="#gameplay">Gameplay</a></li>
       <li><a href="#players">Players</a></li>
       <li><a href="#future">Road Ahead</a></li>
-      <li><a href="devlog.html">Devlog</a></li>
+      <li><a href="/devlog">Devlog</a></li>
       <li><a href="#connections">Connections</a></li>
       <li class="nav-alpha-mobile"><a href="#alpha">Join the Alpha</a></li>
     </ul>
@@ -48,7 +49,7 @@
   </nav>
 
   <section class="wrl-hero" id="top">
-    <div class="wrl-hero-media" aria-hidden="true"><img src="images/hero.jpg" alt=""></div>
+    <div class="wrl-hero-media" aria-hidden="true"><img src="images/hero.jpg" alt="" fetchpriority="high" decoding="async"></div>
     <div class="wrl-hero-inner">
       <div class="wrap wrl-hero-grid">
         <div>
@@ -58,7 +59,7 @@
           <p class="wrl-hero-copy">Built specifically for Wheelchair Rugby League — not adapted from a standing-rugby game. Chair control, body position, contact, passing rules and player individuality are being designed around the sport itself.</p>
           <div class="wrl-actions">
             <a class="btn-wrl-p" href="#game">Explore the Game →</a>
-            <a class="btn-wrl-g" href="devlog.html">Development Log</a>
+            <a class="btn-wrl-g" href="/devlog">Development Log</a>
           </div>
         </div>
 
@@ -66,7 +67,8 @@
           <div class="meta-card"><div><span>Game vision</span><strong>5v5 WRL</strong></div></div>
           <div class="meta-card"><div><span>Current stage</span><strong>Pre-Alpha</strong></div></div>
           <div class="meta-card"><div><span>Engine</span><strong>Unreal Engine 5</strong></div></div>
-          <div class="meta-card"><div><span>Target platforms</span><strong>PC &middot; Xbox &middot; PS5 &middot; Switch</strong></div></div>
+          <div class="meta-card"><div><span>Platform ambition</span><strong>PC &middot; Xbox &middot; PS5 &middot; Switch</strong></div></div>
+          <p class="platform-note">Platform availability and age rating have not been announced.</p>
         </aside>
       </div>
     </div>
@@ -89,8 +91,8 @@
             </div>
           </div>
           <div class="visual-stack" data-reveal>
-            <figure class="visual-main"><img src="images/try.jpg" alt="Wheelchair Rugby League players"><figcaption class="visual-label"><small>Built from the sport</small>Speed. Contact. Personality.</figcaption></figure>
-            <img class="visual-secondary" src="images/multiengland.png" alt="Wheelchair Rugby League England players">
+            <figure class="visual-main"><img src="images/try.webp" alt="Wheelchair Rugby League players" loading="lazy" decoding="async"><figcaption class="visual-label"><small>Built from the sport</small>Speed. Contact. Personality.</figcaption></figure>
+            <img class="visual-secondary" src="images/multiengland.webp" alt="Wheelchair Rugby League England players" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -130,12 +132,12 @@
           <p class="wrl-lead" style="max-width:680px;margin-top:16px;">These screenshots are taken directly from the current development build. Movement, possession, passing, kicking, scoring and the match clock are all already playable.</p>
         </div>
         <div class="dev-screenshots" data-reveal>
-          <figure class="dev-shot" onclick="openLightbox('images/front.png','Match HUD, scoreboard and player model — current build')">
-            <img src="images/front.png" alt="WRL development build — front view showing HUD and player">
+          <figure class="dev-shot" role="button" tabindex="0" data-lightbox-src="images/front.webp" data-lightbox-caption="Match HUD, scoreboard and player model — current build" aria-label="Open larger screenshot: Match HUD, scoreboard and player model">
+            <img src="images/front.webp" alt="WRL development build — front view showing HUD and player" loading="lazy" decoding="async">
             <figcaption>Match HUD, scoreboard and player model — current build <span class="dev-expand">⤢ Expand</span></figcaption>
           </figure>
-          <figure class="dev-shot" onclick="openLightbox('images/back.png','HOLMES #4 — player identity already in-game')">
-            <img src="images/back.png" alt="WRL development build — rear view showing pitch and player jersey">
+          <figure class="dev-shot" role="button" tabindex="0" data-lightbox-src="images/back.webp" data-lightbox-caption="HOLMES #4 — player identity already in-game" aria-label="Open larger screenshot: HOLMES #4 player identity">
+            <img src="images/back.webp" alt="WRL development build — rear view showing pitch and player jersey" loading="lazy" decoding="async">
             <figcaption>HOLMES #4 — player identity already in-game <span class="dev-expand">⤢ Expand</span></figcaption>
           </figure>
         </div>
@@ -143,9 +145,9 @@
       </div>
     </section>
 
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-      <img id="lightbox-img" src="" alt="">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" aria-hidden="true">
+      <button class="lightbox-close" type="button" aria-label="Close screenshot preview">✕</button>
+      <img id="lightbox-img" alt="" decoding="async">
       <p id="lightbox-cap"></p>
     </div>
 
@@ -162,7 +164,7 @@
 
             <div class="char-slide">
               <div class="char-img-wrap">
-                <img src="images/timeline1.png" alt="Stage 1 — placeholder mannequin on basic chair">
+                <img src="images/timeline1.webp" alt="Stage 1 — placeholder mannequin on basic chair" loading="lazy" decoding="async">
               </div>
               <div class="char-caption">
                 <span class="char-stage-lbl">Stage 01</span>
@@ -173,7 +175,7 @@
 
             <div class="char-slide">
               <div class="char-img-wrap">
-                <img src="images/timeline2.jpg" alt="Stage 2 — mannequin on developed chair geometry">
+                <img src="images/timeline2.webp" alt="Stage 2 — mannequin on developed chair geometry" loading="lazy" decoding="async">
               </div>
               <div class="char-caption">
                 <span class="char-stage-lbl">Stage 02</span>
@@ -184,7 +186,7 @@
 
             <div class="char-slide">
               <div class="char-img-wrap">
-                <img src="images/timeline3.png" alt="Stage 3 — first real player model in stadium environment">
+                <img src="images/timeline3.webp" alt="Stage 3 — first real player model in stadium environment" loading="lazy" decoding="async">
               </div>
               <div class="char-caption">
                 <span class="char-stage-lbl">Stage 03</span>
@@ -211,8 +213,8 @@
 
         <div class="char-video-wrap">
           <div class="char-video-inner">
-            <video autoplay loop muted playsinline class="char-video">
-              <source src="images/Basicmovement.mp4" type="video/mp4">
+            <video autoplay loop muted playsinline preload="metadata" class="char-video">
+              <source src="images/basicmovement.mp4" type="video/mp4">
             </video>
             <div class="char-video-note">
               <span class="dev-build-badge">Early Footage</span>
@@ -243,7 +245,7 @@
     </section>
 
     <section class="wrl-impact">
-      <div class="impact-bg" aria-hidden="true"><img src="images/team.jpg" alt=""></div>
+      <div class="impact-bg" aria-hidden="true"><img src="images/team.jpg" alt="" loading="lazy" decoding="async"></div>
       <div class="impact-inner wrap" data-reveal>
         <div class="impact-kicker">This is the feeling</div>
         <h2 class="impact-h">Fast.<br>Physical.<br><span>Unpredictable.</span></h2>
@@ -269,12 +271,12 @@
       <div class="wrap">
         <div class="devlog-head" data-reveal>
           <div><span class="wrl-eyebrow">Latest Development</span><h2 class="wrl-h2">See how the game<em>is being built.</em></h2><p class="wrl-lead">The main page is for the game. The development log goes deeper into why individual mechanics matter and how they are being implemented.</p></div>
-          <a class="devlog-all-link" href="devlog.html">View full devlog →</a>
+          <a class="devlog-all-link" href="/devlog">View full devlog →</a>
         </div>
         <div class="devlog-grid" data-reveal>
-          <article class="dev-card dev-card-featured"><a class="dev-card-link" href="devlog.html#devlog-001"><span class="dev-index">DEVLOG 001</span><div class="dev-meta"><span class="dev-tag">Chair Mechanics</span><span class="dev-state working">Working in-game</span></div><h3>Body Position Matters</h3><p>Leaning became a true gameplay input, with Agility controlling each player's functional movement range.</p><div class="dev-points"><span>Approx. 6°–22° lean range</span><span>Right-stick body control</span><span>Built for future tag accessibility</span></div><div class="dev-read">Read the development story</div></a></article>
-          <article class="dev-card"><a class="dev-card-link" href="devlog.html#devlog-002"><span class="dev-index">DEVLOG 002</span><div class="dev-meta"><span class="dev-tag">Gameplay</span><span class="dev-state working">Working in-game</span></div><h3>Using Your Weight</h3><p>Body position now changes chair performance through sprint and turning behaviour instead of existing only as animation.</p><div class="dev-points"><span>Up to ~5% sprint boost</span><span>~40% lean-turn boost</span><span>Improved analogue diagonals</span></div><div class="dev-read">Read the development story</div></a></article>
-          <article class="dev-card"><a class="dev-card-link" href="devlog.html#devlog-003"><span class="dev-index">DEVLOG 003</span><div class="dev-meta"><span class="dev-tag">Chair Mechanics</span><span class="dev-state next">Up next</span></div><h3>Finding the Tipping Point</h3><p>Speed, steering, lean direction and contact are being brought together into a readable stability and tipping system.</p><div class="dev-points"><span>Correct lean reduces risk</span><span>Wrong-way lean increases risk</span><span>Recovery before full tipping</span></div><div class="dev-read">See what is being built next</div></a></article>
+          <article class="dev-card dev-card-featured"><a class="dev-card-link" href="/devlog#devlog-001"><span class="dev-index">DEVLOG 001</span><div class="dev-meta"><span class="dev-tag">Chair Mechanics</span><span class="dev-state working">Working in-game</span></div><h3>Body Position Matters</h3><p>Leaning became a true gameplay input, with Agility controlling each player's functional movement range.</p><div class="dev-points"><span>Approx. 6°–22° lean range</span><span>Right-stick body control</span><span>Built for future tag accessibility</span></div><div class="dev-read">Read the development story</div></a></article>
+          <article class="dev-card"><a class="dev-card-link" href="/devlog#devlog-002"><span class="dev-index">DEVLOG 002</span><div class="dev-meta"><span class="dev-tag">Gameplay</span><span class="dev-state working">Working in-game</span></div><h3>Using Your Weight</h3><p>Body position now changes chair performance through sprint and turning behaviour instead of existing only as animation.</p><div class="dev-points"><span>Up to ~5% sprint boost</span><span>~40% lean-turn boost</span><span>Improved analogue diagonals</span></div><div class="dev-read">Read the development story</div></a></article>
+          <article class="dev-card"><a class="dev-card-link" href="/devlog#devlog-003"><span class="dev-index">DEVLOG 003</span><div class="dev-meta"><span class="dev-tag">Chair Mechanics</span><span class="dev-state next">Up next</span></div><h3>Finding the Tipping Point</h3><p>Speed, steering, lean direction and contact are being brought together into a readable stability and tipping system.</p><div class="dev-points"><span>Correct lean reduces risk</span><span>Wrong-way lean increases risk</span><span>Recovery before full tipping</span></div><div class="dev-read">See what is being built next</div></a></article>
         </div>
       </div>
     </section>
@@ -283,13 +285,13 @@
       <div class="wrap">
         <div data-reveal><span class="wrl-eyebrow">Connections &amp; Conversations</span><h2 class="wrl-h2">A game with the potential to<em>grow the sport.</em></h2><p class="wrl-lead">The long-term ambition is bigger than a prototype: work with people around Wheelchair Rugby League, broadcast and the wider Rugby League community to create something credible, visible and worth following.</p></div>
         <div class="partner-bar" data-reveal aria-label="Organisations relevant to current conversations and future collaboration">
-          <div class="partner-bar-cell"><img src="images/rfl.png" alt="Rugby Football League"></div>
-          <div class="partner-bar-cell"><img src="images/betfred.jpg" alt="Betfred Super League"></div>
-          <div class="partner-bar-cell"><img src="images/leagueonwheels.jpg" alt="League on Wheels"></div>
-          <div class="partner-bar-cell"><img src="images/skysports.png" alt="Sky Sports"></div>
-          <div class="partner-bar-cell"><img src="images/bbc.png" alt="BBC"></div>
-          <div class="partner-bar-cell"><img src="images/rgk.png" alt="RGK Wheelchairs"></div>
-          <div class="partner-bar-cell"><img src="images/rma.jpg" alt="RMA Sport"></div>
+          <div class="partner-bar-cell"><img src="images/rfl.webp" alt="Rugby Football League" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/betfred.webp" alt="Betfred Super League" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/leagueonwheels.webp" alt="League on Wheels" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/skysports.webp" alt="Sky Sports" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/bbc.webp" alt="BBC" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/rgk.webp" alt="RGK Wheelchairs" loading="lazy" decoding="async"></div>
+          <div class="partner-bar-cell"><img src="images/rma.webp" alt="RMA Sport" loading="lazy" decoding="async"></div>
         </div>
         <p class="partner-note">Logos are shown as context for conversations and future collaboration ambitions and do not imply endorsement, licensing, sponsorship or an official partnership unless separately announced.</p>
       </div>
@@ -304,10 +306,14 @@
             <p class="wrl-lead">Sign up for development updates and be first to hear when alpha testing opens up. Or follow the build in real time through the development log.</p>
           </div>
           <div class="waitlist-right">
-            <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/xqpkgbqg" method="POST" novalidate>
+            <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/xqpkgbqg" method="POST">
+              <label class="sr-only" for="waitlistEmail">Email address</label>
               <div class="waitlist-fields">
-                <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+                <input type="email" id="waitlistEmail" name="email" placeholder="Your email address" required autocomplete="email" inputmode="email">
                 <button type="submit">Subscribe</button>
+              </div>
+              <div class="waitlist-turnstile">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAEt8HShS6Skf2OO4" data-theme="dark"></div>
               </div>
               <p class="waitlist-small">No spam. Development updates only. Unsubscribe any time.</p>
             </form>
@@ -316,7 +322,7 @@
               <p class="waitlist-success-msg">You're in. We'll be in touch when there's something worth sharing.</p>
             </div>
             <div class="closing-actions">
-              <a class="btn-wrl-p" href="devlog.html">Read the Devlog →</a>
+              <a class="btn-wrl-p" href="/devlog">Read the Devlog →</a>
               <a class="btn-wrl-g" href="mailto:contact@ralphiestudios.com">Contact Ralphie Studios</a>
             </div>
           </div>
@@ -326,21 +332,46 @@
   </main>
 
   <footer>
-    <a href="index.html" class="ft-logo-brand"><span class="nr">RALPHIE</span><span class="ns">STUDIOS</span></a>
-    <div class="ft-right"><p>&copy; 2026 Ralphie Studios. Wheelchair Rugby League — in development.</p><div class="ft-links"><a href="index.html">Studio</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></div></div>
+    <a href="/" class="ft-logo-brand"><span class="nr">RALPHIE</span><span class="ns">STUDIOS</span></a>
+    <div class="ft-right"><p>&copy; 2026 Ralphie Studios. Wheelchair Rugby League — in development.</p><div class="ft-links"><a href="/">Studio</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></div>
   </footer>
 
   <script>
-    function openLightbox(src, caption) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    let lightboxReturnFocus = null;
+
+    function openLightbox(src, caption, trigger) {
+      lightboxReturnFocus = trigger || document.activeElement;
       document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-img').alt = caption;
       document.getElementById('lightbox-cap').textContent = caption;
-      document.getElementById('lightbox').classList.add('active');
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
     }
+
     function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
+      if (!lightbox.classList.contains('active')) return;
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (lightboxReturnFocus) lightboxReturnFocus.focus();
     }
+
+    document.querySelectorAll('.dev-shot[data-lightbox-src]').forEach(shot => {
+      const open = () => openLightbox(shot.dataset.lightboxSrc, shot.dataset.lightboxCaption, shot);
+      shot.addEventListener('click', open);
+      shot.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open();
+        }
+      });
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
     (function() {
@@ -368,6 +399,16 @@
     if (waitlistForm) {
       waitlistForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        if (!this.checkValidity()) {
+          this.reportValidity();
+          return;
+        }
+        this.querySelectorAll('.waitlist-error').forEach(el => el.remove());
+        const turnstileToken = this.querySelector('input[name="cf-turnstile-response"]');
+        if (!turnstileToken || !turnstileToken.value) {
+          this.insertAdjacentHTML('beforeend', '<p class="waitlist-error">Please complete the security check before subscribing.</p>');
+          return;
+        }
         const btn = this.querySelector('button[type="submit"]');
         btn.disabled = true;
         btn.textContent = 'Sending…';
@@ -383,11 +424,13 @@
           } else {
             btn.disabled = false;
             btn.textContent = 'Subscribe';
+            if (window.turnstile) window.turnstile.reset();
             btn.insertAdjacentHTML('afterend', '<p class="waitlist-error">Something went wrong — please try again or email us directly.</p>');
           }
         } catch {
           btn.disabled = false;
           btn.textContent = 'Subscribe';
+          if (window.turnstile) window.turnstile.reset();
         }
       });
     }

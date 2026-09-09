@@ -98,7 +98,14 @@ nav {
 }
 
 #nav {
-  display: none;
+  background: rgba(15,24,53,.72);
+  border-bottom-color: transparent;
+  transition: background .25s ease, border-color .25s ease;
+}
+
+#nav.scrolled {
+  background: rgba(24,34,68,.94);
+  border-bottom-color: var(--border);
 }
 
 .nav-brand {
@@ -2983,6 +2990,52 @@ input:focus-visible {
 
 }
 
+
+/* Accessibility + release-status polish */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.concept-art-note {
+  position: absolute;
+  z-index: 5;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 9px;
+  background: rgba(5,12,25,.82);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.72);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.platform-note {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  color: rgba(255,255,255,.56);
+  font-size: 9px;
+  line-height: 1.45;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.dev-shot:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
 /* =========================================================
    WRL GAME SHOWCASE — 2026-09 REFINEMENT
    ========================================================= */
@@ -3285,6 +3338,12 @@ input:focus-visible {
   white-space: nowrap;
 }
 .waitlist-fields button:hover { background: #e07820; }
+.waitlist-turnstile {
+  min-height: 65px;
+  display: flex;
+  align-items: center;
+}
+
 .waitlist-small {
   font-size: 0.75rem;
   color: var(--muted);

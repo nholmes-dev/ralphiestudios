@@ -1,0 +1,15 @@
+Ralphie Studios — Cloudflare Turnstile setup
+
+The public Site Key has been added to the WRL update form.
+
+IMPORTANT: The Secret Key is NOT included in these website files and should never be committed to GitHub or placed in client-side HTML/JavaScript.
+
+To finish setup in Formspree:
+1. Open the Formspree form used by the WRL waitlist.
+2. Open Settings / Spam protection / CAPTCHA.
+3. Enable CAPTCHA and choose Cloudflare Turnstile.
+4. Paste your Cloudflare Turnstile SECRET key into Formspree.
+5. Save the Formspree settings.
+6. Deploy these website files and test one successful submission.
+
+The Privacy Policy has been updated to mention Turnstile. No Turnstile-specific Terms of Use change is necessary for the current Managed widget integration.

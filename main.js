@@ -1,25 +1,13 @@
-// Nav scroll + hamburger
-const nav = document.getElementById('nav');
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+// Homepage hero motion
 const heroContent = document.querySelector('.hero-content');
 const hero = document.querySelector('.hero');
-
-navToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', String(open));
-});
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  navToggle.setAttribute('aria-expanded', 'false');
-}));
 
 addEventListener('scroll', () => {
   const y = scrollY;
   const heroH = hero.offsetHeight;
   const progress = Math.max(0, Math.min(y / (heroH * 0.75), 1));
 
-  // Rockstar zoom: logo scales toward viewer and fades as sections slide over
+  // Logo scales toward the viewer and fades as the site content moves over it.
   heroContent.style.transform = `scale(${1 + progress * 0.18})`;
   heroContent.style.opacity = Math.max(0, 1 - progress * 1.6);
 }, { passive: true });
@@ -70,6 +58,8 @@ function tick() {
   requestAnimationFrame(tick);
 }
 
-addEventListener('resize', init, { passive: true });
-init();
-tick();
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  addEventListener('resize', init, { passive: true });
+  init();
+  tick();
+}

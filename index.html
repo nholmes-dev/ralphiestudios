@@ -33,8 +33,8 @@
   }
   </script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,40 +49,19 @@
 
 <body>
 
-  <nav id="nav">
-    <a href="/" class="nav-brand">
-      <span class="nr">RALPHIE</span><span class="ns">STUDIOS</span>
-    </a>
-
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#connect">Get in Touch</a></li>
-    </ul>
-
-    <button
-      class="nav-toggle"
-      id="navToggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
-
   <!-- HERO -->
   <section class="hero" id="home">
     <canvas id="cvs"></canvas>
     <div class="hero-glow"></div>
 
     <div class="hero-content">
+      <h1 class="sr-only">Ralphie Studios</h1>
       <img
-        src="images/logo.png"
+        src="images/logo.webp"
         alt="Ralphie Studios"
         class="hero-logo-img"
+        fetchpriority="high"
+        decoding="async"
       >
 
       <div class="hero-rule"></div>
@@ -180,10 +159,13 @@
 
           <div class="game-vis wrl-project-vis">
             <img
-              src="images/gamepic.png"
-              alt="Wheelchair Rugby League"
+              src="images/gamepic.webp"
+              alt="Concept packaging artwork for Wheelchair Rugby League"
               class="wrl-cover-img"
+              loading="lazy"
+              decoding="async"
             >
+            <span class="concept-art-note">Concept artwork · platforms and age rating not announced</span>
           </div>
 
           <div class="game-info">
@@ -219,7 +201,7 @@
               Unreal Engine 5 &middot; Core gameplay systems in development
             </div>
 
-            <a href="wrl.html" class="btn btn-g project-btn">
+            <a href="/wrl" class="btn btn-g project-btn">
               Explore the Game →
             </a>
 
@@ -236,6 +218,8 @@
 
               <img
                 src="images/baizeboard-logo.png"
+                loading="lazy"
+                decoding="async"
                 alt="BaizeBoard"
                 class="baize-logo"
               >
@@ -327,7 +311,9 @@
 
           <div class="team-photo-wrap">
             <img
-              src="images/nathan.jpg"
+              src="images/nathan.webp"
+              loading="lazy"
+              decoding="async"
               alt="Nathan"
               class="team-photo"
               onerror="this.style.display='none'"
@@ -357,7 +343,9 @@
 
           <div class="team-photo-wrap">
             <img
-              src="images/ralph.jpg"
+              src="images/ralph.webp"
+              loading="lazy"
+              decoding="async"
               alt="Ralph"
               class="team-photo"
               onerror="this.style.display='none'"
@@ -430,8 +418,8 @@
       <p>&copy; 2026 Ralphie Studios. All rights reserved.</p>
 
       <div class="ft-links">
-        <a href="terms.html">Terms of Use</a>
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/privacy">Privacy Policy</a>
       </div>
     </div>
 

@@ -213,8 +213,9 @@
 
         <div class="char-video-wrap">
           <div class="char-video-inner">
-            <video autoplay loop muted playsinline preload="metadata" class="char-video">
+            <video autoplay loop muted playsinline preload="metadata" poster="images/basicmovement-poster.webp" class="char-video">
               <source src="images/basicmovement.mp4" type="video/mp4">
+              Your browser does not support embedded MP4 video.
             </video>
             <div class="char-video-note">
               <span class="dev-build-badge">Early Footage</span>
@@ -419,6 +420,7 @@
             headers: { 'Accept': 'application/json' }
           });
           if (res.ok) {
+            btn.textContent = 'Subscribed ✓';
             this.hidden = true;
             document.getElementById('waitlistSuccess').hidden = false;
           } else {
@@ -437,6 +439,15 @@
   </script>
 
   <script>
+    const movementVideo = document.querySelector('.char-video');
+    if (movementVideo) {
+      const tryPlay = movementVideo.play();
+      if (tryPlay && typeof tryPlay.catch === 'function') {
+        tryPlay.catch(() => { movementVideo.controls = true; });
+      }
+      movementVideo.addEventListener('error', () => { movementVideo.controls = true; });
+    }
+
     const wrlNav = document.getElementById('wrlNav');
     const wrlNavToggle = document.getElementById('wrlNavToggle');
     const wrlNavLinks = wrlNav.querySelector('.nav-links');

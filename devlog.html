@@ -25,7 +25,7 @@
       <a href="/wrl" class="wrl-back" aria-label="Back to Wheelchair Rugby League"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span><span class="nr">WRL</span><span class="ns wrl-back-label">THE GAME</span></span></a>
       <div class="wrl-sep" aria-hidden="true"></div><span class="wrl-game-lbl">Development Log</span>
     </div>
-    <ul class="nav-links"><li><a href="#devlog-001">001</a></li><li><a href="#devlog-002">002</a></li><li><a href="#devlog-003">003</a></li><li><a href="#coming">Coming Next</a></li></ul>
+    <ul class="nav-links"><li><a href="#devlog-001">001</a></li><li><a href="#devlog-002">002</a></li><li><a href="#devlog-003">003</a></li><li><a href="#devlog-004">004</a></li><li><a href="#devlog-005">005</a></li><li><a href="#coming">Coming Next</a></li></ul>
     <div class="wrl-cta"><a href="/wrl" class="wrl-cta-btn">Back to the Game</a><button class="nav-toggle" id="wrlNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </nav>
 
@@ -41,7 +41,33 @@
   <main class="devlog-archive">
     <section class="dev-article-full" id="devlog-001">
       <div class="wrap">
-        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 001 · CHAIR MECHANICS</span><h2>Body Position Matters:<br><em>Building Leaning &amp; Agility</em></h2></div><span class="dev-state working">Working in-game</span></div>
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 001 · CORE MOVEMENT</span><h2>The First Push:<br><em>Building Normal Movement</em></h2></div><span class="dev-state working">Working in-game</span></div>
+        <div class="dev-article-grid" data-reveal>
+          <article><h3>Why it matters in WRL</h3><p>Everything starts with moving the chair. Wheelchair Rugby League should not feel like a standing character with wheels underneath them: acceleration, momentum, steering and grip all need to shape how a player approaches space, pressure and contact.</p></article>
+          <article><h3>How it works in-game</h3><p>Normal movement builds speed rather than snapping instantly to a fixed value. Steering works alongside momentum, while custom grip behaviour keeps the chair responsive without allowing it to slide sideways unrealistically through every turn.</p></article>
+          <article><h3>Player / stat interaction</h3><p><strong>Speed</strong> and <strong>Acceleration</strong> are part of the player data rather than one universal movement setup. That gives the foundation for quick players, powerful starters and slower players to feel different before any special traits are added.</p></article>
+          <article><h3>Development / UE5 notes</h3><p>The movement system is Blueprint-led. Early tuning included acceleration curves, momentum, braking behaviour, tyre grip, controller input and push-animation response. Custom lateral-friction work was added specifically to remove the unwanted sideways sliding that appeared in early builds.</p></article>
+          <article><h3>What came next</h3><p>Once normal chair movement felt dependable, the next step was giving the player another gear: sprinting. The goal was to add a meaningful burst of pace without replacing the underlying movement model.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dev-article-full alternate" id="devlog-002">
+      <div class="wrap">
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 002 · CORE MOVEMENT</span><h2>Finding Another Gear:<br><em>Sprinting &amp; Recovery</em></h2></div><span class="dev-state working">Working in-game</span></div>
+        <div class="dev-article-grid" data-reveal>
+          <article><h3>Why it matters in WRL</h3><p>Players do not move at one permanent pace. Bursts of speed matter when attacking space, chasing a break or recovering into defence, so sprinting needs to feel like an extension of chair movement rather than a simple on/off speed cheat.</p></article>
+          <article><h3>How it works in-game</h3><p>Sprint input raises the player's available pace and push intensity while keeping the same acceleration, steering and momentum foundations underneath it. Returning to normal movement should feel continuous rather than switching to a completely different movement mode.</p></article>
+          <article><h3>Player / stat interaction</h3><p>Sprinting and recovery behaviour are pulled from the player's stats rather than being identical for everybody. Normal <strong>Speed</strong> and <strong>Acceleration</strong> still define the base player, while the relevant sprint and <strong>Recovery</strong> data can change the burst and how quickly that player is ready to go again.</p></article>
+          <article><h3>Development / UE5 notes</h3><p>The sprint system was built on top of the existing Blueprint movement logic so it continues to respect acceleration and chair handling. Push animation rate also follows the change in pace, helping the visual effort match the movement rather than leaving sprint as a hidden numerical boost.</p></article>
+          <article><h3>What came next</h3><p>With normal movement and sprinting established, body position became the next layer. Leaning could then affect what the chair does during a sprint or turn instead of being developed in isolation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dev-article-full" id="devlog-003">
+      <div class="wrap">
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 003 · CHAIR MECHANICS</span><h2>Body Position Matters:<br><em>Building Leaning &amp; Agility</em></h2></div><span class="dev-state working">Working in-game</span></div>
         <div class="dev-article-grid" data-reveal>
           <article><h3>Why it matters in WRL</h3><p>A player is not fixed upright in a sports wheelchair. Body position changes reach, balance, space and how difficult a shoulder tag is to access. Leaning therefore needs to be part of the player's decisions, not simply an animation layered over movement.</p></article>
           <article><h3>How it works in-game</h3><p>Lean mode gives the right stick direct control over upper-body position. The player can move the torso directionally while driving, making leaning a deliberate gameplay input that can be combined with steering and sprinting.</p></article>
@@ -52,9 +78,9 @@
       </div>
     </section>
 
-    <section class="dev-article-full alternate" id="devlog-002">
+    <section class="dev-article-full alternate" id="devlog-004">
       <div class="wrap">
-        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 002 · GAMEPLAY</span><h2>Using Your Weight:<br><em>Leaning Changes Chair Handling</em></h2></div><span class="dev-state working">Working in-game</span></div>
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 004 · GAMEPLAY</span><h2>Using Your Weight:<br><em>Leaning Changes Chair Handling</em></h2></div><span class="dev-state working">Working in-game</span></div>
         <div class="dev-article-grid" data-reveal>
           <article><h3>Why it matters in WRL</h3><p>Body position in a sports wheelchair is part of driving. The same player can make a different turn or create a different burst of speed depending on how committed their body position is.</p></article>
           <article><h3>How it works in-game</h3><p>Forward lean during sprinting can provide a small speed advantage. Leaning into the direction of a turn increases rotation, allowing more aggressive committed turns and making the chair feel less like a character controller on wheels.</p></article>
@@ -65,9 +91,9 @@
       </div>
     </section>
 
-    <section class="dev-article-full" id="devlog-003">
+    <section class="dev-article-full" id="devlog-005">
       <div class="wrap">
-        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 003 · CHAIR MECHANICS</span><h2>Finding the<br><em>Tipping Point</em></h2></div><span class="dev-state next">Up next</span></div>
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 005 · CHAIR MECHANICS</span><h2>Finding the<br><em>Tipping Point</em></h2></div><span class="dev-state next">Up next</span></div>
         <div class="dev-article-grid" data-reveal>
           <article><h3>Why it matters in WRL</h3><p>Fast turns, poor body position and contact all affect chair stability. If the game is going to capture the physical decisions of WRL, tipping cannot just be a random physics accident.</p></article>
           <article><h3>How it should work</h3><p>Speed, steering input, lean direction and eventually contact will combine into a stability calculation. Leaning into a turn should help. Leaning away from it should make the chair less secure.</p></article>
@@ -83,12 +109,12 @@
         <span class="wrl-eyebrow" data-reveal>Coming Through the Devlog</span>
         <h2 class="wrl-h2" data-reveal>There is plenty<em>left to tell.</em></h2>
         <div class="dev-queue" data-reveal>
-          <article><span>04 / MATCH SYSTEMS</span><h3>What Counts as a Tackle?</h3><p>Tags, defender reach, chair contact, tipping, big-wheel defence and the restart that follows.</p></article>
-          <article><span>05 / PASSING</span><h3>No Forward Passes</h3><p>How left/right passing respects the defining WRL rule, then evolves into tap/hold power and teammate targeting.</p></article>
-          <article><span>06 / SCORING</span><h3>Scoring Has to Be Deliberate</h3><p>Why tries require a player input in-goal, how Home/Away zones work, and how scoring connects to match state.</p></article>
-          <article><span>07 / PLAYERS</span><h3>Stats That Change the Game</h3><p>Speed, Agility, Handling, Tackling, Aggression, Passing, Kicking, Recovery and the move toward individual traits.</p></article>
-          <article><span>08 / TEAMS</span><h3>From One Player to 5v5</h3><p>Roster loading, AI, switching, control modes and making a full team feel coherent rather than ten separate characters.</p></article>
-          <article><span>09 / PRESENTATION</span><h3>Building Match Day</h3><p>Venues, kits, crowds, officials, camera language, replays and the broadcast identity that will sit on top of the gameplay.</p></article>
+          <article><span>06 / MATCH SYSTEMS</span><h3>What Counts as a Tackle?</h3><p>Tags, defender reach, chair contact, tipping, big-wheel defence and the restart that follows.</p></article>
+          <article><span>07 / PASSING</span><h3>No Forward Passes</h3><p>How left/right passing respects the defining WRL rule, then evolves into tap/hold power and teammate targeting.</p></article>
+          <article><span>08 / SCORING</span><h3>Scoring Has to Be Deliberate</h3><p>Why tries require a player input in-goal, how Home/Away zones work, and how scoring connects to match state.</p></article>
+          <article><span>09 / PLAYERS</span><h3>Stats That Change the Game</h3><p>Speed, Agility, Handling, Tackling, Aggression, Passing, Kicking, Recovery and the move toward individual traits.</p></article>
+          <article><span>10 / TEAMS</span><h3>From One Player to 5v5</h3><p>Roster loading, AI, switching, control modes and making a full team feel coherent rather than ten separate characters.</p></article>
+          <article><span>11 / PRESENTATION</span><h3>Building Match Day</h3><p>Venues, kits, crowds, officials, camera language, replays and the broadcast identity that will sit on top of the gameplay.</p></article>
         </div>
         <div class="devlog-back-cta" data-reveal><a class="btn-wrl-p" href="/wrl">Back to the Game →</a></div>
       </div>

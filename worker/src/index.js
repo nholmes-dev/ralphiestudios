@@ -53,7 +53,7 @@ function confirmationEmail() {
 
       <!-- Footer -->
       <tr><td style="background:#f5f6f8;padding:20px 32px;border-top:1px solid #e4e8ec;border-radius:0 0 6px 6px;">
-        <p style="margin:0;font-size:12px;color:#8a96a4;line-height:1.7;">You signed up at <a href="https://ralphiestudios.com/wrl" style="color:#8a96a4;text-decoration:underline;">ralphiestudios.com/wrl</a>. No spam &mdash; development updates only. To unsubscribe, reply to this email and we'll remove you straight away.</p>
+        <p style="margin:0;font-size:12px;color:#8a96a4;line-height:1.7;">You signed up at <a href="https://ralphiestudios.com/wrl" style="color:#8a96a4;text-decoration:underline;">ralphiestudios.com/wrl</a>. No spam &mdash; development updates only. Every update email includes a one-click unsubscribe link.</p>
       </td></tr>
 
     </table>
@@ -117,6 +117,16 @@ export default {
         headers: { ...headers, 'Content-Type': 'application/json' },
       });
     }
+
+    // Add to Resend audience
+    await fetch('https://api.resend.com/audiences/2c4e099a-d353-48c5-9283-810d33281463/contacts', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, unsubscribed: false }),
+    });
 
     // Notification to studio
     await fetch('https://api.resend.com/emails', {

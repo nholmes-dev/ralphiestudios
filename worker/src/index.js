@@ -27,7 +27,7 @@ function confirmationEmail() {
       <tr><td style="background:#07101f;padding:20px 28px;border-radius:6px 6px 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0"><tr>
           <td style="vertical-align:middle;">
-            <span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#e8620e;">RALPHIE</span><span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#ffffff;">STUDIOS</span>
+            <span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#e8620e;">RALPHIE</span><span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#6aa3e8;">STUDIOS</span>
           </td>
           <td style="text-align:right;vertical-align:middle;">
             <img src="https://ralphiestudios.com/images/favicon.png" alt="Ralphie Studios" width="36" height="36" style="display:inline-block;border:0;border-radius:4px;">

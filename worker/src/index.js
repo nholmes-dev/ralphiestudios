@@ -15,15 +15,24 @@ function corsHeaders(origin) {
 function confirmationEmail() {
   return `<!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>You're on the list</title></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>You're on the list</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
 <body style="margin:0;padding:0;background:#eef0f3;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#eef0f3;padding:40px 16px;">
   <tr><td align="center">
     <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
 
       <!-- Header -->
-      <tr><td style="background:#07101f;padding:22px 32px;border-radius:6px 6px 0 0;">
-        <span style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:900;letter-spacing:0.1em;color:#e8620e;">RALPHIE</span><span style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;font-weight:900;letter-spacing:0.1em;color:#ffffff;"> STUDIOS</span>
+      <tr><td style="background:#07101f;padding:20px 28px;border-radius:6px 6px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td style="vertical-align:middle;">
+            <span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#e8620e;">RALPHIE</span><span style="font-family:'Russo One',Arial Black,sans-serif;font-size:16px;letter-spacing:0.08em;color:#ffffff;">STUDIOS</span>
+          </td>
+          <td style="text-align:right;vertical-align:middle;">
+            <img src="https://ralphiestudios.com/images/favicon.png" alt="Ralphie Studios" width="36" height="36" style="display:inline-block;border:0;border-radius:4px;">
+          </td>
+        </tr></table>
       </td></tr>
 
       <!-- Orange rule -->

@@ -94,6 +94,25 @@ export default {
       });
     }
 
+    // Verify Turnstile token
+    const turnstileToken = formData.get('cf-turnstile-response') || '';
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+        remoteip: request.headers.get('CF-Connecting-IP') || '',
+      }),
+    });
+    const verification = await verifyRes.json();
+    if (!verification.success) {
+      return new Response(JSON.stringify({ error: 'Security check failed' }), {
+        status: 400,
+        headers: { ...headers, 'Content-Type': 'application/json' },
+      });
+    }
+
     // Confirmation email to subscriber
     const confirmRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',

@@ -92,9 +92,8 @@
       <p>We collect only the personal data needed to operate the website and respond to enquiries:</p>
       <ul>
         <li><strong>Contact enquiries:</strong> If you email us directly, we receive your email address and the content of your message.</li>
-        <li><strong>Development update sign-ups:</strong> If you submit your email address via the Wheelchair Rugby League update sign-up form, we collect that email address to send you development updates and early-access notifications. You can unsubscribe at any time by contacting us at <a href="mailto:contact@ralphiestudios.com">contact@ralphiestudios.com</a>.</li>
+        <li><strong>Development update sign-ups:</strong> If you submit your email address via the Wheelchair Rugby League update sign-up form, we collect that email address to send you development updates and early-access notifications. You can unsubscribe at any time using the one-click unsubscribe link included in every update email, or by contacting us at <a href="mailto:contact@ralphiestudios.com">contact@ralphiestudios.com</a>.</li>
         <li><strong>Server logs:</strong> Our hosting provider (Cloudflare) may log basic technical data such as your IP address, browser type, and pages visited. These logs are used for security and performance purposes. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a> for details.</li>
-        <li><strong>Bot-prevention data:</strong> The Wheelchair Rugby League update form uses Cloudflare Turnstile to help distinguish legitimate visitors from automated traffic. Turnstile may process limited technical and browser signals needed for this security purpose. It does not receive the contents of your form fields from Ralphie Studios.</li>
       </ul>
       <p>We do not use tracking cookies, analytics scripts, or advertising networks on this website.</p>
 
@@ -106,15 +105,15 @@
       </ul>
 
       <h2>Third-Party Data Processors</h2>
-      <p>The update sign-up form is powered by <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Formspree</a>, which processes submitted email addresses on our behalf in order to deliver them to us. Formspree acts as a data processor under UK GDPR and handles data in accordance with their own privacy policy. We do not authorise Formspree to use your data for any other purpose.</p>
-      <p>The same form uses <a href="https://www.cloudflare.com/en-gb/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a> for bot and abuse prevention. Cloudflare processes limited technical signals for this security function. Turnstile is used to protect the form rather than for advertising or behavioural tracking.</p>
+      <p>The update sign-up form is processed by a Cloudflare Worker, which validates your submission and passes your email address to <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Resend</a>. Resend acts as a data processor under UK GDPR: it sends your confirmation email and stores your email address in our subscriber list so we can send you future development updates. We do not authorise Resend to use your data for any other purpose. See <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Resend's privacy policy</a> for details.</p>
+      <p>Form submissions are also processed by Cloudflare Workers, part of the Cloudflare platform that already hosts this website. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a> for details.</p>
 
       <h2>Legal Basis for Processing</h2>
       <ul>
         <li><strong>Contact enquiries:</strong> processed on the basis of <strong>legitimate interests</strong> (responding to your message).</li>
         <li><strong>Update sign-ups:</strong> processed on the basis of your <strong>consent</strong>. You may withdraw consent at any time by emailing us and we will remove your address from our list.</li>
         <li><strong>Security and server logs:</strong> processed where necessary for our legitimate interests in maintaining the security and reliability of the website.</li>
-        <li><strong>Turnstile security checks:</strong> processed where necessary for our legitimate interests in preventing spam, automated abuse and malicious submissions.</li>
+        <li><strong>Cloudflare Worker processing:</strong> processed where necessary for our legitimate interests in operating the sign-up form securely and reliably.</li>
       </ul>
 
       <h2>Data Retention</h2>

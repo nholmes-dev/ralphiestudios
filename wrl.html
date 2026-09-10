@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="wrl-page">
 
@@ -313,9 +312,6 @@
                 <input type="email" id="waitlistEmail" name="email" placeholder="Your email address" required autocomplete="email" inputmode="email">
                 <button type="submit">Subscribe</button>
               </div>
-              <div class="waitlist-turnstile">
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAAEt8HShS6Skf2OO4" data-theme="dark"></div>
-              </div>
               <p class="waitlist-small">No spam. Development updates only. Unsubscribe any time.</p>
             </form>
             <div class="waitlist-success" id="waitlistSuccess" hidden>
@@ -405,11 +401,6 @@
           return;
         }
         this.querySelectorAll('.waitlist-error').forEach(el => el.remove());
-        const turnstileToken = this.querySelector('input[name="cf-turnstile-response"]');
-        if (!turnstileToken || !turnstileToken.value) {
-          this.insertAdjacentHTML('beforeend', '<p class="waitlist-error">Please complete the security check before subscribing.</p>');
-          return;
-        }
         const btn = this.querySelector('button[type="submit"]');
         btn.disabled = true;
         btn.textContent = 'Sending…';
@@ -426,13 +417,11 @@
           } else {
             btn.disabled = false;
             btn.textContent = 'Subscribe';
-            if (window.turnstile) window.turnstile.reset();
             btn.insertAdjacentHTML('afterend', '<p class="waitlist-error">Something went wrong — please try again or email us directly.</p>');
           }
         } catch {
           btn.disabled = false;
           btn.textContent = 'Subscribe';
-          if (window.turnstile) window.turnstile.reset();
         }
       });
     }

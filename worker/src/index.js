@@ -77,9 +77,11 @@ export default {
     }
 
     let email;
+    let turnstileToken;
     try {
       const formData = await request.formData();
       email = (formData.get('email') || '').trim().toLowerCase();
+      turnstileToken = formData.get('cf-turnstile-response') || '';
     } catch {
       return new Response(JSON.stringify({ error: 'Bad request' }), {
         status: 400,
@@ -95,7 +97,6 @@ export default {
     }
 
     // Verify Turnstile token
-    const turnstileToken = formData.get('cf-turnstile-response') || '';
     const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

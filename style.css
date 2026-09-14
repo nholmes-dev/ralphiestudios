@@ -3385,6 +3385,9 @@ input:focus-visible {
 .dev-article-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:28px; align-items:start; }
 .dev-article-heading h2 { margin:14px 0 0; font-family:'Russo One',sans-serif; font-size:clamp(42px,6vw,78px); line-height:.9; text-transform:uppercase; }
 .dev-article-heading h2 em { color:var(--orange); font-style:normal; }
+.devlog-clip { margin-top:40px; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,0.08); }
+.devlog-clip video { width:100%; display:block; max-height:480px; object-fit:cover; background:#000; }
+.devlog-clip-caption { margin:0; padding:10px 16px; font-size:0.75rem; color:var(--muted); background:rgba(0,0,0,0.3); }
 .dev-article-grid { margin-top:48px; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border:1px solid var(--border); }
 .dev-article-grid article { min-height:310px; padding:24px; background:rgba(255,255,255,.018); }
 .dev-article-grid article + article { border-left:1px solid var(--border); }

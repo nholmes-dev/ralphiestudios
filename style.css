@@ -3214,11 +3214,12 @@ input:focus-visible {
 .footage-tab.active { background: var(--orange); border-color: var(--orange); color: #fff; }
 .footage-stage {
   position: relative;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
+  border-bottom: none;
   background: #000;
-  aspect-ratio: 16/8;
+  aspect-ratio: 16/7;
 }
 .footage-video {
   position: absolute;
@@ -3226,21 +3227,21 @@ input:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center center;
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
 }
 .footage-video.active { opacity: 1; pointer-events: auto; }
 .footage-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: block;
   padding: 0.65rem 0.9rem;
   font-size: 0.78rem;
   color: var(--muted);
   background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
 }
 .footage-devlog-link {
   display: inline-block;

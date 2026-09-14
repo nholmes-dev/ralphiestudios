@@ -25,7 +25,7 @@
       <a href="/wrl" class="wrl-back" aria-label="Back to Wheelchair Rugby League"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span><span class="nr">WRL</span><span class="ns wrl-back-label">THE GAME</span></span></a>
       <div class="wrl-sep" aria-hidden="true"></div><span class="wrl-game-lbl">Development Log</span>
     </div>
-    <ul class="nav-links"><li><a href="#devlog-001">001</a></li><li><a href="#devlog-002">002</a></li><li><a href="#devlog-003">003</a></li><li><a href="#devlog-004">004</a></li><li><a href="#devlog-005">005</a></li><li><a href="#coming">Coming Next</a></li></ul>
+    <ul class="nav-links"><li><a href="#devlog-001">001</a></li><li><a href="#devlog-002">002</a></li><li><a href="#devlog-003">003</a></li><li><a href="#devlog-004">004</a></li><li><a href="#devlog-005">005</a></li><li><a href="#devlog-006">006</a></li><li><a href="#coming">Coming Next</a></li></ul>
     <div class="wrl-cta"><a href="/wrl" class="wrl-cta-btn">Back to the Game</a><button class="nav-toggle" id="wrlNavToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
   </nav>
 
@@ -109,13 +109,30 @@
 
     <section class="dev-article-full" id="devlog-005">
       <div class="wrap">
-        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 005 · CHAIR MECHANICS</span><h2>Finding the<br><em>Tipping Point</em></h2></div><span class="dev-state next">Up next</span></div>
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 005 · CHAIR MECHANICS</span><h2>Finding the<br><em>Tipping Point</em></h2></div><span class="dev-state working">Working in-game</span></div>
+        <div class="devlog-clip" data-reveal>
+          <video src="images/tipping.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          <p class="devlog-clip-caption">In-game footage — chair tipping, current pre-alpha build</p>
+        </div>
         <div class="dev-article-grid" data-reveal>
           <article><h3>Why it matters in WRL</h3><p>Fast turns, poor body position and contact all affect chair stability. If the game is going to capture the physical decisions of WRL, tipping cannot just be a random physics accident.</p></article>
-          <article><h3>How it should work</h3><p>Speed, steering input, lean direction and eventually contact will combine into a stability calculation. Leaning into a turn should help. Leaning away from it should make the chair less secure.</p></article>
-          <article><h3>Player / stat interaction</h3><p>Agility and Recovery can give players different margins for control and recovery. Contact-related attributes can later influence how collisions add instability, avoiding one universal tipping threshold for every player.</p></article>
-          <article><h3>Development / UE5 target</h3><p>The target is a readable transition: visible wheel lift or chair tilt first, then a recoverable danger state, then a full fall only when instability becomes too great. The player should have a chance to save it.</p></article>
-          <article><h3>What comes next</h3><p>Contact will feed into the stability system. A ball carrier tipping while in possession can then become one valid tackle outcome alongside shoulder-tag removal.</p></article>
+          <article><h3>How it works in-game</h3><p>Speed, steering input and lean direction combine into a stability calculation. Leaning into a turn helps maintain control. Leaning away from it reduces stability and increases the chance of the chair going into a tip.</p></article>
+          <article><h3>Player / stat interaction</h3><p>Agility determines how much a player can tip before losing control. A player with low Agility has a narrower margin before the chair goes over, while a highly agile player can sustain a tip longer and recover from positions that would drop a less agile player.</p></article>
+          <article><h3>Development / UE5 notes</h3><p>The system is Blueprint-led and reads directly from player stats. The transition is designed to be readable: the chair enters a tipped state first, giving the player a window to recover before a full fall is committed.</p></article>
+          <article><h3>What comes next</h3><p>The recovery save mechanic is now the focus — giving players an active input window to pull the chair back from a tip before it goes all the way over. Contact will then feed additional instability into the same system.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dev-article-full alternate" id="devlog-006">
+      <div class="wrap">
+        <div class="dev-article-heading" data-reveal><div><span class="dev-index">DEVLOG 006 · CHAIR MECHANICS</span><h2>Going All the Way:<br><em>The Fall &amp; the Save</em></h2></div><span class="dev-state next">In development</span></div>
+        <div class="dev-article-grid" data-reveal>
+          <article><h3>Why it matters in WRL</h3><p>A tip in real Wheelchair Rugby League does not always end in a fall. Players fight to stay upright — pushing back, shifting weight, reading the chair. That moment of recovery needs to exist in the game as a genuine skill decision, not a passive animation.</p></article>
+          <article><h3>How it should work</h3><p>Once the chair enters a tipped state, time matters. A player who reacts quickly and inputs the correct recovery has a window to save the tip before the chair commits to going over. Leave it too long — or not react at all — and the fall happens.</p></article>
+          <article><h3>Player / stat interaction</h3><p><strong>Agility</strong> directly controls how much a player can tip before the save window closes. A high-Agility player can be in a tipped state longer and still recover. A low-Agility player has a much smaller window — the same tip that is recoverable for one player is a fall for another.</p></article>
+          <article><h3>Development / UE5 target</h3><p>The fall state itself will be driven by agility threshold and time-in-tip rather than a single fixed point. The save mechanic requires a deliberate player input during the danger window — the goal is that it feels earned rather than automatic, and punishing when missed.</p></article>
+          <article><h3>What comes next</h3><p>Once the fall and save are stable, contact becomes the next input into the system. A collision adding instability while a player is already tipped should be able to close that recovery window — turning a near-miss into a tackle outcome.</p></article>
         </div>
       </div>
     </section>

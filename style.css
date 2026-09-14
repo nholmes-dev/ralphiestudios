@@ -3218,7 +3218,7 @@ input:focus-visible {
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
   background: #000;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/8;
 }
 .footage-video {
   position: absolute;
@@ -3226,7 +3226,7 @@ input:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
+  object-position: center bottom;
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;

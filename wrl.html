@@ -141,25 +141,22 @@
             <figcaption>HOLMES #4 — player identity already in-game <span class="dev-expand">⤢ Expand</span></figcaption>
           </figure>
         </div>
-        <div class="dev-clips-grid" data-reveal>
-          <figure class="dev-shot">
-            <video src="images/basicmovementdev.mp4" autoplay loop muted playsinline preload="metadata" style="width:100%;display:block;object-fit:cover;"></video>
-            <figcaption><strong style="color:var(--text);">001 · Basic Movement</strong> — acceleration, momentum and chair control</figcaption>
-          </figure>
-          <figure class="dev-shot">
-            <video src="images/sprinting.mp4" autoplay loop muted playsinline preload="metadata" style="width:100%;display:block;object-fit:cover;"></video>
-            <figcaption><strong style="color:var(--text);">002 · Sprint &amp; Recovery</strong> — burst pace and return to normal movement</figcaption>
-          </figure>
-          <figure class="dev-shot">
-            <video src="images/lean.mp4" autoplay loop muted playsinline preload="metadata" style="width:100%;display:block;object-fit:cover;"></video>
-            <figcaption><strong style="color:var(--text);">003 · Lean Range</strong> — upper-body position across all directions</figcaption>
-          </figure>
-          <figure class="dev-shot">
-            <video src="images/leaning.mp4" autoplay loop muted playsinline preload="metadata" style="width:100%;display:block;object-fit:cover;"></video>
-            <figcaption><strong style="color:var(--text);">004 · Leaning in Play</strong> — body position affecting chair handling</figcaption>
-          </figure>
+        <div class="footage-switcher" data-reveal>
+          <div class="footage-tabs" role="tablist" aria-label="Gameplay footage">
+            <button class="footage-tab active" role="tab" aria-selected="true" data-index="0">001 · Basic Movement</button>
+            <button class="footage-tab" role="tab" aria-selected="false" data-index="1">002 · Sprint &amp; Recovery</button>
+            <button class="footage-tab" role="tab" aria-selected="false" data-index="2">003 · Lean Range</button>
+            <button class="footage-tab" role="tab" aria-selected="false" data-index="3">004 · Leaning in Play</button>
+          </div>
+          <div class="footage-stage">
+            <video class="footage-video active" src="images/basicmovementdev.mp4" autoplay loop muted playsinline preload="metadata"></video>
+            <video class="footage-video" src="images/sprinting.mp4" loop muted playsinline preload="metadata"></video>
+            <video class="footage-video" src="images/lean.mp4" loop muted playsinline preload="metadata"></video>
+            <video class="footage-video" src="images/leaning.mp4" loop muted playsinline preload="metadata"></video>
+            <figcaption class="footage-caption"><span class="footage-caption-text">001 · Basic Movement — acceleration, momentum and chair control</span></figcaption>
+          </div>
+          <a class="footage-devlog-link" href="/devlog">Read the development notes behind each mechanic →</a>
         </div>
-        <a class="footage-devlog-link" href="/devlog" data-reveal>Read the development notes behind each mechanic →</a>
 
         <p class="dev-note" data-reveal><span class="dev-build-badge">Pre-Alpha</span>Environments, crowd, lighting and visual polish are all in progress. More footage coming as development continues.</p>
       </div>
@@ -392,6 +389,24 @@
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    (function() {
+      const captions = [
+        '001 · Basic Movement — acceleration, momentum and chair control',
+        '002 · Sprint & Recovery — burst pace and return to normal movement',
+        '003 · Lean Range — upper-body position across all directions',
+        '004 · Leaning in Play — body position affecting chair handling',
+      ];
+      const tabs = document.querySelectorAll('.footage-tab');
+      const videos = document.querySelectorAll('.footage-video');
+      const captionEl = document.querySelector('.footage-caption-text');
+      function switchTo(i) {
+        tabs.forEach((t, j) => { t.classList.toggle('active', j === i); t.setAttribute('aria-selected', String(j === i)); });
+        videos.forEach((v, j) => { if (j === i) { v.classList.add('active'); v.play(); } else { v.classList.remove('active'); v.pause(); } });
+        captionEl.textContent = captions[i];
+      }
+      tabs.forEach((tab, i) => tab.addEventListener('click', () => switchTo(i)));
+    })();
 
 
     (function() {

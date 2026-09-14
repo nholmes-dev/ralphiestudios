@@ -119,7 +119,7 @@
           <article><h3>How it works in-game</h3><p>Speed, steering input and lean direction combine into a stability calculation. Leaning into a turn helps maintain control. Leaning away from it reduces stability and increases the chance of the chair going into a tip.</p></article>
           <article><h3>Player / stat interaction</h3><p>Agility determines how much a player can tip before losing control. A player with low Agility has a narrower margin before the chair goes over, while a highly agile player can sustain a tip longer and recover from positions that would drop a less agile player.</p></article>
           <article><h3>Development / UE5 notes</h3><p>The system is Blueprint-led and reads directly from player stats. The transition is designed to be readable: the chair enters a tipped state first, giving the player a window to recover before a full fall is committed.</p></article>
-          <article><h3>What comes next</h3><p>The recovery save mechanic is now the focus — giving players an active input window to pull the chair back from a tip before it goes all the way over. Contact will then feed additional instability into the same system.</p></article>
+          <article><h3>What comes next</h3><p>Once tipping is established, the chair needs to go all the way over. From there, players will have an active window to fight the fall — a save attempt that can pull the chair back before it fully commits. Whether that save works depends on how long the chair has been tipping and how agile the player is.</p></article>
         </div>
       </div>
     </section>
